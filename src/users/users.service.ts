@@ -7,6 +7,9 @@ import { User, UserDocument } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
+  add(arg0: { name: string; email: string; password: string; deleted_at: null; }) {
+    throw new Error('Method not implemented.');
+  }
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   create(createUserDto: CreateUserDto) {
