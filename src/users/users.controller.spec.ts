@@ -11,6 +11,7 @@ describe('UsersController', () => {
       providers: [UsersService],
     }).compile();
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     controller = module.get<UsersController>(UsersController);
   });
 

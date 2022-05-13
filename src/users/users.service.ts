@@ -7,9 +7,6 @@ import { User, UserDocument } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
-  add(arg0: { name: string; email: string; password: string; deleted_at: null; }) {
-    throw new Error('Method not implemented.');
-  }
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   create(createUserDto: CreateUserDto) {
@@ -22,9 +19,7 @@ export class UsersService {
   }
 
   findOne(id: string) {
-    return this.userModel.findOne({
-      _id: id,
-    });
+    return this.userModel.findById(id);
   }
 
   update(id: string, updateUserDto: UpdateUserDto) {
@@ -42,18 +37,20 @@ export class UsersService {
   }
 
   remove(id: string) {
-    return this.userModel.findByIdAndUpdate(
-      {
+    return this.userModel
+      .deleteOne({
         _id: id,
-      },
-      {
-        $set: {
-          deleted_at: new Date(),
-        },
-      },
-      {
-        new: true,
-      },
-    );
+      })
+      .exec();
+  }
+
+  async add(data: any) {
+    try {
+      console.log('User added:', data);
+      const user = await this.userModel.create(data);
+      await user.save();
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

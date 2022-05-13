@@ -12,8 +12,8 @@ export class UsersSeed {
   })
   async create() {
     await this.usersService.add({
-      name: 'Go DevApi',
-      email: 'godevapi@devapi.com',
+      name: 'Bruno',
+      email: 'brunosjacomini18@gmail.com',
       password: '1234567',
       deleted_at: null,
     });

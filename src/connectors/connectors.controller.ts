@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { ConnectorsService } from './connectors.service';
 import { CreateConnectorDto } from './dto/create-connector.dto';
@@ -21,13 +22,18 @@ export class ConnectorsController {
   }
 
   @Get()
-  findAll() {
-    return this.connectorsService.findAll();
+  findAll(
+    @Query('name') name: string,
+    @Query('category') category: string,
+    @Query('type') type: string,
+    @Query('privacy') privacy: string,
+  ) {
+    return this.connectorsService.findAll(name, category, type, privacy);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.connectorsService.findOne(+id);
+    return this.connectorsService.findOne(id);
   }
 
   @Patch(':id')
@@ -35,11 +41,11 @@ export class ConnectorsController {
     @Param('id') id: string,
     @Body() updateConnectorDto: UpdateConnectorDto,
   ) {
-    return this.connectorsService.update(+id, updateConnectorDto);
+    return this.connectorsService.update(id, updateConnectorDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.connectorsService.remove(+id);
+    return this.connectorsService.remove(id);
   }
 }

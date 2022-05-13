@@ -1,26 +1,64 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateConnectorDto } from './dto/create-connector.dto';
 import { UpdateConnectorDto } from './dto/update-connector.dto';
+import { Connector, ConnectorDocument } from './entities/connector.entity';
 
 @Injectable()
 export class ConnectorsService {
+  constructor(
+    @InjectModel(Connector.name)
+    private connectorModel: Model<ConnectorDocument>,
+  ) {}
+
   create(createConnectorDto: CreateConnectorDto) {
-    return 'This action adds a new connector';
+    const connector = new this.connectorModel(createConnectorDto);
+    return connector.save();
   }
 
-  findAll() {
-    return `This action returns all connectors`;
+  findAll(name: string, category: string, type: string, privacy: string) {
+    const connectors = this.connectorModel.find().where('deleted_at', null);
+    if (name) connectors.where('name', name);
+    if (category) connectors.where('category', category);
+    if (type) connectors.where('type', type);
+    if (privacy) connectors.where('privacy', privacy);
+    return connectors;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} connector`;
+  findOne(id: string) {
+    return this.connectorModel.findById(id);
   }
 
-  update(id: number, updateConnectorDto: UpdateConnectorDto) {
-    return `This action updates a #${id} connector`;
+  update(id: string, updateConnectorDto: UpdateConnectorDto) {
+    return this.connectorModel.findByIdAndUpdate(
+      {
+        _id: id,
+      },
+      {
+        $set: updateConnectorDto,
+      },
+      {
+        new: true,
+      },
+    );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} connector`;
+  remove(id: string) {
+    return this.connectorModel
+      .deleteOne({
+        _id: id,
+      })
+      .exec();
+  }
+
+  async add(data: any) {
+    try {
+      console.log('Connector added:', data);
+      const user = await this.connectorModel.create(data);
+      await user.save();
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
