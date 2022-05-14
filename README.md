@@ -1,73 +1,88 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Projeto DevApi Connectors Backend
+## Descrição 
+  API Rest criada com base no desafio da DevApi, que consiste em criar uma Web API que será consumida pelo portal web.
+  
+## Banco de Dados e Entidades
+#### `MongoDB Nosql - Conexão via cluster Atlas MongoDB Cloud.`
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### Entidades
+Users - Usuários
+- name: string
+- email: string
+- password: string
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Connectors - Conectores
+- name: string
+- type: string
+- privacy: string
+- base_url: string
+- logo_url: string
+- category: string
+- description: string
+- status: string
 
-## Description
+# Executando o Projeto
+## Para acessar as requisições de Users e Connectors, é necessário a autenticação através do usuário padrão
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- `Email: devapi1@devapi.com`
+- `Password: 1234321`
 
-## Installation
+#### Nota: Após o login é nescessário pegar o token obtido através da rota `Login` e enviar por `Authorization` do tipo Bearer Token ao realizar requisições para as outras rotas. 
 
+## INSTALAÇÃO
+## Lembre-se de executar os comandos na seguinte ordem:
+### 1º - Instalar Dependências da Aplicação
+- Para dar início ao projeto, é necessário dar o comando: 
 ```bash
 $ npm install
+
+ou
+
+$ yarn install
+```
+### 2º - Comando Script para criar as informações de Users (Usuários)
+```bash
+$ npx nestjs-command create:user
+
+ou
+
+$ yarn nestjs-command create:user
 ```
 
-## Running the app
-
+### 3º - Comando Script para criar as informações de Connectors (Conectores) 
 ```bash
-# development
-$ npm run start
+$ npx nestjs-command create:connector
 
-# watch mode
-$ npm run start:dev
+ou
 
-# production mode
-$ npm run start:prod
+$ yarn nestjs-command create:connector
+```
+# Iniciando o servidor
+## Na máquina local: 
+```bash
+$ npm start
+
+ou
+
+$ yarn start
+```
+## No Docker (Opcional): 
+```bash
+$ docker-compose up
 ```
 
-## Test
-
+## Testes Unitários (Controllers)
+### Comando para realizar os `Testes Unitários`
 ```bash
-# unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
+ou
 
-# test coverage
-$ npm run test:cov
+$ yarn test
 ```
+# Contato
+### Redes Sociais 
+- [Linkedin](https://www.linkedin.com/in/bruno-jacomini-b3916a17a)
+- [Instagram](https://www.instagram.com/brunosj__)
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+© 2022 Desenvolvido por Bruno Jacomini.
