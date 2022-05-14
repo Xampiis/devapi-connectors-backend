@@ -14,25 +14,12 @@ export class ConnectorsSeed {
   async run() {
     await this.connectorsService.add([
       {
-        name: 'Madeira Madeira',
+        name: 'Amazon',
         description:
-          'Nosso objetivo é integra-lo conosco. Queremos crescer juntos, pois juntos somos mais fortes e faremos tudo pelo preço ;)',
+          'A Amazon, além de viciada em números, é louca pelos seus clientes. “Inovação com foco no cliente”, parece clichê, mas é esse o lema que move todos os colaboradores da loja virtual que tinha tudo para dar errado, mas se transformou em uma empresa de nível global.',
         logo_url:
-          'https://devapi.com.br/static/images/connectors/madeira-madeira.png',
-        base_url: 'https://marketplace.madeiramadeira.com.br/v1',
-        category: 'Marketplaces',
-        type: 'REST',
-        privacy: 'PUBLIC',
-        status: 'ACTIVE',
-        deleted_at: null,
-      },
-      {
-        name: 'VTEX',
-        description:
-          'Plataforma de E-commerce focada em trazer para o cliente uma elevada experiência de compra através de um comércio unificado.',
-        logo_url:
-          'https://agenciam3.com/wp-content/uploads/2019/09/100-1024x536.jpg',
-        base_url: ' https://{accountName}.{enviroment}.com.br/api',
+          'https://devapi-cms-blog.s3.amazonaws.com/Amazon_7e5092cd0f.png',
+        base_url: 'https://www.amazon.com.br',
         category: 'E-commerce',
         type: 'REST',
         privacy: 'PUBLIC',
@@ -40,26 +27,13 @@ export class ConnectorsSeed {
         deleted_at: null,
       },
       {
-        name: 'Conta Azul',
+        name: 'BrasPress',
         description:
-          'ContaAzul é uma plataforma online de fácil manuseio e controle financeiro para pequenos negócios.',
+          'Empresa líder no Brasil no transporte de encomendas, a BRASPRESS é a única do setor que atende todo o território nacional com uma frota própria de 2.890 veículos.',
         logo_url:
-          'https://devapi.com.br/static/images/connectors/conta-azul.png',
-        base_url: 'https://api.contaazul.com/v1',
-        category: 'ERP',
-        type: 'REST',
-        privacy: 'PUBLIC',
-        status: 'ACTIVE',
-        deleted_at: null,
-      },
-      {
-        name: 'AnyMarket',
-        description:
-          'O hub de integração marketplaces que amplia as vendas do seu ecommerce com total segurança e estabilidade.',
-        logo_url:
-          'https://devapi.com.br/static/images/connectors/anymarket.png',
-        base_url: 'https://api.anymarket.com.br/v2',
-        category: 'HUB',
+          'https://devapi-cms-blog.s3.amazonaws.com/Braspress_e6acd16c90.png',
+        base_url: 'https://www.braspress.com/a-braspress/',
+        category: 'Logistic',
         type: 'REST',
         privacy: 'PUBLIC',
         status: 'ACTIVE',
@@ -81,18 +55,32 @@ export class ConnectorsSeed {
         deleted_at: null,
       },
       {
-        name: 'Cielo Ecommerce',
+        name: 'Bradesco',
         description:
-          'A solução de pagamento digital fácil de integrar. Conecte seu e-commerce à solução de pagamento pronta da Cielo. É conectar e sair vendendo online.',
+          'Ser a opção preferencial do cliente, tanto no mundo físico quanto no digital, diferenciando-se por uma atuação eficiente e para todos os segmentos de mercado.',
         logo_url:
-          'https://www.cielo.com.br/assets/images/assets_cielo/logo_footer.svg',
-        base_url: 'https://api.cieloecommerce.cielo.com.br/1',
-        category: 'Gateways de pagamento',
+          'https://devapi-cms-blog.s3.amazonaws.com/Bradesco_d7c54d4002.png',
+        base_url: 'https://banco.bradesco/html/classic/index.shtm',
+        category: 'Bank',
         type: 'REST',
         privacy: 'PUBLIC',
         status: 'ACTIVE',
         deleted_at: null,
       },
+      {
+        name: 'Discord',
+        description:
+          'O Discord é Onde você e alguns amigos possam passar um tempo juntos. Um lugar que torna fácil conversar todos os dias e socializar com mais frequência.',
+        logo_url:
+          'https://devapi-cms-blog.s3.amazonaws.com/Discord_cf66a3a651.png',
+        base_url: 'https://discord.com://api.anymarket.com.br/v2',
+        category: 'Social',
+        type: 'REST',
+        privacy: 'PUBLIC',
+        status: 'ACTIVE',
+        deleted_at: null,
+      },
+
       {
         name: 'PicPay',
         description: 'PicPay faz com que seus pagamentos sejam mais simples.',

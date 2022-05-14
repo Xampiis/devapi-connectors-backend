@@ -7,7 +7,9 @@ import {
   Param,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ConnectorsService } from './connectors.service';
 import { CreateConnectorDto } from './dto/create-connector.dto';
 import { UpdateConnectorDto } from './dto/update-connector.dto';
@@ -16,11 +18,13 @@ import { UpdateConnectorDto } from './dto/update-connector.dto';
 export class ConnectorsController {
   constructor(private readonly connectorsService: ConnectorsService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createConnectorDto: CreateConnectorDto) {
     return this.connectorsService.create(createConnectorDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll(
     @Query('name') name: string,
@@ -31,11 +35,13 @@ export class ConnectorsController {
     return this.connectorsService.findAll(name, category, type, privacy);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.connectorsService.findOne(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -44,6 +50,7 @@ export class ConnectorsController {
     return this.connectorsService.update(id, updateConnectorDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.connectorsService.remove(id);
