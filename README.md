@@ -3,7 +3,7 @@
   API Rest criada com base no desafio da DevApi, que consiste em criar uma Web API que será consumida pelo portal web.
   
 ## Banco de Dados e Entidades
-#### `MongoDB Nosql - Conexão via cluster Atlas MongoDB Cloud.`
+#### `MongoDB NoSQL - Conexão via cluster Atlas MongoDB Cloud.`
 
 ### Entidades
 Users - Usuários
